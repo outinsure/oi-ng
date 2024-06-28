@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'outinsure';
+  platinumSponsors = [
+    {
+      photoUrl: '',
+      link: '',
+    },
+    {
+      photoUrl: '',
+      link: '',
+    }
+  ];
 }
