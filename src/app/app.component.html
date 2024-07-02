@@ -24,8 +24,36 @@
 <div class="bg-white">
   <div class="mx-auto max-w-5xl py-12 font-mono">
     <h3 class="text-black text-4xl text-center font-bold">Sponsors & Partners</h3>
-    @if('') {}
-    <h4 class="text-black text-center uppercase mt-6">Platinum sponsor</h4>
+    @if (platinumSponsors.length) {
+      <h4 class="uppercase text-xl text-center mt-5">Platinum sponsors</h4>
+      <div class="flex items-center justify-around flex-wrap my-10">
+        @for(sponsor of platinumSponsors; track sponsor.photoUrl) {
+          <a class="rounded-lg overflow-hidden py-2 px-4" target="_blank" [href]="sponsor.websiteUrl">
+            <img class="h-28" [src]="sponsor.photoUrl" />
+          </a>
+        }
+      </div>
+    }
+    @if (standardSponsors.length) {
+      <h4 class="uppercase text-lg text-center mt-5">Standard sponsors</h4>
+      <div class="flex items-center justify-around flex-wrap my-10">
+        @for(sponsor of standardSponsors; track sponsor.photoUrl) {
+          <a class="rounded-lg overflow-hidden py-2 px-4" target="_blank" [href]="sponsor.websiteUrl">
+            <img class="h-24" [src]="sponsor.photoUrl" />
+          </a>
+        }
+      </div>
+    }
+    @if (registeredPartners.length) {
+      <h4 class="uppercase text-lg text-center mt-5">Registered Partners</h4>
+      <div class="my-10">
+        @for(sponsor of registeredPartners; track sponsor.photoUrl) {
+          <a class="inline-block rounded-lg overflow-hidden py-2 px-4" target="_blank" [href]="sponsor.websiteUrl">
+            <img class="w-20" [src]="sponsor.photoUrl" />
+          </a>
+        }
+      </div>
+    }
     <div class="flex">
 
     </div>
@@ -65,7 +93,7 @@
           <a href="tel:+12265056255">+1 (226) 505-6255</a>
         </h5>
         <h5 class="mt-4">
-          <a href="mailto:ashikodiemeka@gmail.com">ashikodiemeka@gmail.com</a>
+          <a href="mailto:ashikodiemeka@gmail.com">ashikodiemeka&#64;gmail.com</a>
         </h5>
         <h5 class="mt-4">London, Ontario.</h5>
       </div>
