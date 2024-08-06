@@ -1502,6 +1502,20 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/devicon@1.1.49":
+  version "1.1.49"
+  resolved "https://registry.yarnpkg.com/@iconify-json/devicon/-/devicon-1.1.49.tgz#2fda9a039c5c72254cfe7ec0b32c5d43d31262e9"
+  integrity sha512-q53rzEhRZBxHtYT3mE13BKPq+5MS5rR8M1k8OoIjWf5FT8R6VjxgvFFLCUQOYSeLc8Pp9uDDZmV7j7OOh+/bFQ==
+  dependencies:
+    "@iconify/types" "*"
+
+"@iconify-json/logos@^1.1.44":
+  version "1.1.44"
+  resolved "https://registry.yarnpkg.com/@iconify-json/logos/-/logos-1.1.44.tgz#5bdb9fc1a22944207afad8ea2e07c1d186f19c40"
+  integrity sha512-sIc355/sSq4GihU4eFTDVbXoeg2rZD3yH6tNOJTNouDu9Fx259BSWH+XEEQwm/YImDIllcGqmJuNBjAu4UVs2g==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/tailwind@1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@iconify/tailwind/-/tailwind-1.1.1.tgz"
@@ -6643,6 +6657,7 @@ wildcard@^2.0.0:
   integrity sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
