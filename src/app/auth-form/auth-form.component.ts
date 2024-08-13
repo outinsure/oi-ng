@@ -7,14 +7,14 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './auth-form.component.sass'
 })
 export class AuthFormComponent {
-  oauthStep = 2;
-  oauthForm = new FormGroup({
+  authStep = 3;
+  authForm = new FormGroup({
     email: new FormControl('ashikodiemeka@gmail.com'),
   });
-  emailOauth() {
-    this.oauthStep = 2;
+  nextAuthStep() {
+    this.authStep++;
   };
   restartAuth() {
-    this.oauthStep = 1;
+    this.authStep = 1;
   }
 }
