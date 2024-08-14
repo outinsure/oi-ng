@@ -16,5 +16,8 @@ export class AuthFormComponent {
   };
   restartAuth() {
     this.authStep = 1;
+  };
+  completeAuth() {
+    
   }
 }

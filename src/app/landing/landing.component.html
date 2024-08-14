@@ -25,50 +25,48 @@
 </div>
 <div class="bg-white">
   <div class="mx-auto max-w-5xl py-12 font-mono">
-    <h3 class="text-black text-4xl text-center font-bold">
+    <h3 class="text-black text-4xl font-bold">
       Sponsors & Partners
     </h3>
     @if (platinumSponsors.length) {
-    <h4 class="uppercase text-xl text-center mt-5">Platinum sponsors</h4>
-    <div class="flex items-center justify-around flex-wrap my-10">
-      @for(sponsor of platinumSponsors; track sponsor.photoUrl) {
-      <a
-        class="rounded-lg overflow-hidden py-2 px-4"
-        target="_blank"
-        [href]="sponsor.websiteUrl"
-      >
-        <img class="h-28" [src]="sponsor.photoUrl" />
-      </a>
-      }
-    </div>
-    } @if (standardSponsors.length) {
-    <h4 class="uppercase text-lg text-center mt-5">Standard sponsors</h4>
-    <div class="flex items-center justify-around flex-wrap my-10">
-      @for(sponsor of standardSponsors; track sponsor.photoUrl) {
-      <a
-        class="rounded-lg overflow-hidden py-2 px-4"
-        target="_blank"
-        [href]="sponsor.websiteUrl"
-      >
-        <img class="h-24" [src]="sponsor.photoUrl" />
-      </a>
-      }
-    </div>
-    } @if (registeredPartners.length) {
-    <h4 class="uppercase text-lg text-center mt-5">Registered Partners</h4>
-    <div class="my-10">
-      @for(sponsor of registeredPartners; track sponsor.photoUrl) {
-      <a
-        class="inline-block rounded-lg overflow-hidden py-2 px-4"
-        target="_blank"
-        [href]="sponsor.websiteUrl"
-      >
-        <img class="w-20" [src]="sponsor.photoUrl" />
-      </a>
-      }
-    </div>
+      <h4 class="uppercase text-xl mt-5">Platinum sponsors</h4>
+      <div class="flex items-center justify-between flex-wrap my-10">
+        @for(sponsor of platinumSponsors; track sponsor.photoUrl) {
+          <div class="flex rounded-xl bg-[#F3F3F3] w-[32%] h-[200px] py-4 px-4">
+            <div class="flex flex-col flex-1 justify-center pr-6">
+              <p class="font-bold text-xl">{{sponsor.name}}</p>
+              <a class="underline mt-4" target="_blank" [href]="sponsor.websiteUrl">Learn More</a>
+            </div>
+            <div 
+              class="bg-contain bg-center bg-no-repeat flex-1" 
+              [style.backgroundImage]="'url(' + sponsor.photoUrl +')'"
+            ></div>
+          </div>
+        }
+      </div>
+    } 
+    @if (standardSponsors.length) {
+      <h4 class="uppercase text-lg mt-5">Standard sponsors</h4>
+      <div class="flex items-center flex-wrap my-10">
+        @for(sponsor of standardSponsors; track sponsor.photoUrl) {
+          <div 
+            class="bg-contain bg-center bg-no-repeat w-[150px] h-[100px] mr-6" 
+            [style.backgroundImage]="'url(' + sponsor.photoUrl +')'"
+          ></div>
+        }
+      </div>
+    } 
+    @if (registeredPartners.length) {
+      <h4 class="uppercase text-lg mt-5">Registered Partners</h4>
+      <div class="flex flex-wrap my-10">
+        @for(sponsor of registeredPartners; track sponsor.photoUrl) {
+          <div 
+            class="bg-contain bg-center bg-no-repeat w-[100px] h-[100px] mr-6" 
+            [style.backgroundImage]="'url(' + sponsor.photoUrl +')'"
+          ></div>
+        }
+      </div>
     }
-    <div class="flex"></div>
   </div>
 </div>
 <div class="bg-black">
