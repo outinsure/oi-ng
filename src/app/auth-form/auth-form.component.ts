@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-form',
-  templateUrl: './auth-form.component.html',
-  styleUrl: './auth-form.component.sass'
+  templateUrl: './auth-form.component.html'
 })
 export class AuthFormComponent {
-  authStep = 3;
+  constructor(private router: Router) {}
+  authStep = 1;
   authForm = new FormGroup({
     email: new FormControl('ashikodiemeka@gmail.com'),
   });
@@ -18,6 +19,6 @@ export class AuthFormComponent {
     this.authStep = 1;
   };
   completeAuth() {
-    
+    this.router.navigate(['account']);
   }
 }

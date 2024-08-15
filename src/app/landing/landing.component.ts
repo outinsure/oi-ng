@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-landing',
   standalone: true,
   imports: [],
-  templateUrl: './landing.component.html',
-  styleUrl: './landing.component.sass'
+  templateUrl: './landing.component.html'
 })
 export class LandingComponent {
   title = 'outinsure';
