@@ -4,15 +4,35 @@
             <a href="/"><img class="w-12 h-12" src="/assets/oi-512.png" /></a>
         </div>
     </div>
-    <div class="w-100">
-        <div class="flex flex-1 max-w-[1280px] mx-auto">
-            <div class="max-w-96">
+    <div class="">
+        <div class="flex max-w-[1280px] mx-auto">
+            <div class="w-1/5">
                 <ul>
-                    <li>Account info</li>
+                    <li class="bg-black">
+                        <a href="/account">
+                            <div class="py-3 px-4 text-xl bg-[#EBEBEB] ml-1">
+                                Account info
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account">
+                            <div class="py-3 px-4 text-xl">
+                                Groups
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/account">
+                            <div class="py-3 px-4 text-xl">
+                                Subscription
+                            </div>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="flex-1">
-                <h2>Basic Info</h2>
+            <div class="flex-1 pt-8 px-6">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>

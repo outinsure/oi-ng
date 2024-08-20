@@ -3,11 +3,21 @@ import { Routes } from '@angular/router';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { LandingComponent } from './landing/landing.component';
 import { AccountComponent } from './account/account.component';
+import { AccountInfoComponent } from './account/account-info.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
   { path: 'oi-auth', component: AuthFormComponent },
-  { path: 'account', component: AccountComponent },
+  { 
+    path: 'account', 
+    component: AccountComponent, 
+    children: [
+      {
+        path: '',
+        component: AccountInfoComponent
+      }
+    ] 
+  },
 ];
 
 @NgModule({})
