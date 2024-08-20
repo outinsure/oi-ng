@@ -14,6 +14,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        title: 'Basic Info',
         component: AccountInfoComponent
       }
     ] 
