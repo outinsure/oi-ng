@@ -8,6 +8,7 @@ import { UpdateNameComponent } from './update-form/update-name.component';
 import { UpdateNumberComponent } from './update-form/update-number.component';
 import { UpdateEmailComponent } from './update-form/update-email.component';
 import { UpdatePasswordComponent } from './update-form/update-password.component';
+import { AccountGroupsComponent } from './account/account-groups.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -24,7 +25,7 @@ export const routes: Routes = [
       {
         path: 'change-name',
         title: 'Update Name',
-        component: UpdateNameComponent
+        component: UpdateNameComponent,
       },
       {
         path: 'change-number',
@@ -41,6 +42,11 @@ export const routes: Routes = [
         title: 'Update Password',
         component: UpdatePasswordComponent
       },
+      {
+        path: 'groups',
+        title: 'Manage Groups',
+        component: AccountGroupsComponent,
+      }
     ]
   },
 ];

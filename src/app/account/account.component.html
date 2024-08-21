@@ -9,7 +9,7 @@
             <div class="w-1/5">
                 <ul>
                     <li class="bg-black">
-                        <a routerLink="/account" routerLinkActive="active" class="group">
+                        <a routerLink="/account" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: !isChildUrl }" class="group">
                             <div class="py-3 px-4 text-xl bg-white group-[.active]:bg-[#EBEBEB] group-[.active]:ml-1">
                                 Account info
                             </div>
