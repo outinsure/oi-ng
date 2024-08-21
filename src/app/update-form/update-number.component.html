@@ -1,0 +1,22 @@
+<h2 class="text-4xl mb-6 font-semibold">Mobile Number</h2>
+<p class="mb-4">This number will receive notifications, group invites and allow you recover your account.</p>
+<div class="bg-[#F3F3F3] flex w-full rounded-lg focus-within:outline focus-within:outline-2 focus-within:outline-slate-500">
+    <input class="w-10 text-center bg-transparent" disabled value="+1" />
+    <input 
+        placeholder="Mobile Number (Optional)"
+        inputmode="tel"
+        pattern="[0-9]*"
+        type="text"
+        maxLength="10"
+        autocomplete="tel-national"
+        autocomplete="one-time-code" 
+        class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light" 
+    />
+</div>
+<span class="font-light text-sm">A verification code will be sent to this number</span>
+<button
+    type="button"
+    class="w-full bg-black text-white font-semibold h-12 rounded-xl mt-6"
+>
+    Update
+</button>

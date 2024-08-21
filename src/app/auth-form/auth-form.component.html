@@ -104,34 +104,21 @@
         </div>
     } @else if (authStep == 3) {
         <div class="full">
-            <p class="text-[28px] font-light mb-6">Complete sign up below</p>
+            <p class="text-[28px] font-light mb-4">Complete sign up below</p>
             <div class="w-full">
-                <div class="bg-[#F3F3F3] flex w-full rounded-lg focus-within:outline focus-within:outline-2 focus-within:outline-slate-500">
-                    <input class="w-10 text-center bg-transparent" disabled value="+1" />
-                    <input 
-                        placeholder="Mobile Number (Optional)"
-                        inputmode="tel"
-                        pattern="[0-9]*"
-                        type="text"
-                        maxLength="10"
-                        autocomplete="tel-national"
-                        autocomplete="one-time-code" 
-                        class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light" 
-                    />
-                </div>
-                <input type="text" 
+                <input type="password" 
                     class="bg-[#F3F3F3] 
                     text-xl placeholder:text-[#757575] w-full placeholder:font-light 
-                    py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+                    py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 
                     placeholder:text-base" 
-                    placeholder="Full name" 
+                    placeholder="Password" 
                 />
                 <input type="password" 
                     class="bg-[#F3F3F3] 
                     text-xl placeholder:text-[#757575] w-full placeholder:font-light 
                     py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
                     placeholder:text-base" 
-                    placeholder="Password" 
+                    placeholder="Confirm Password" 
                 />
             </div>
             <div class="flex w-full justify-between mt-12">

@@ -5,6 +5,9 @@ import { LandingComponent } from './landing/landing.component';
 import { AccountComponent } from './account/account.component';
 import { AccountInfoComponent } from './account/account-info.component';
 import { UpdateNameComponent } from './update-form/update-name.component';
+import { UpdateNumberComponent } from './update-form/update-number.component';
+import { UpdateEmailComponent } from './update-form/update-email.component';
+import { UpdatePasswordComponent } from './update-form/update-password.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -22,6 +25,21 @@ export const routes: Routes = [
         path: 'change-name',
         title: 'Update Name',
         component: UpdateNameComponent
+      },
+      {
+        path: 'change-number',
+        title: 'Update Number',
+        component: UpdateNumberComponent
+      },
+      {
+        path: 'change-email',
+        title: 'Update Email',
+        component: UpdateEmailComponent
+      },
+      {
+        path: 'change-password',
+        title: 'Update Password',
+        component: UpdatePasswordComponent
       },
     ]
   },
