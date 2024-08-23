@@ -6,12 +6,12 @@
         class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light" 
     />
 </div>
-<div class="py-8 px-8 shadow-lg bg-white border border-[#CBCBCB] mt-16">
+<div class="py-8 px-8 shadow-lg bg-white border border-[#CBCBCB] my-16">
     <div class="flex items-center justify-between">
         <div>
             <span class="text-2xl font-bold text-black">Group</span>
             <label class="flex items-center mt-2 uppercase text-sm text-black font-normal">
-                <input type="checkbox" class="h-6 w-16 hidden peer" />
+                <input value="" type="checkbox" class="h-6 w-16 hidden peer" (change)="showOwnerList($event)" />
                 <div class="bg-[#CBCBCB] rounded-lg h-6 w-12 mr-2 p-1 flex peer-checked:justify-end peer-checked:bg-black">
                     <div class="w-4 h-4 bg-white rounded-sm"></div>
                 </div>
@@ -23,15 +23,30 @@
         </button>
     </div>
     <div class="mt-12">
-        <div class="flex text-sm border-b border-[#CBCBCB] uppercase pb-5">
+        <div class="flex text-sm border-b border-[#CBCBCB] uppercase pb-5 items-center">
             <span class="flex-1">Name</span>
             <span class="w-32">Role</span>
             <span class="w-32">Size</span>
             <span class="w-32">Created</span>
             <span class="w-20"></span>
         </div>
-        @if (groups.length > 20) {
-
+        @if (groups.length) {
+            @for(group of groups; track group.groupId) {
+                <div class="flex text-sm border-b border-[#CBCBCB] py-5 items-center cursor-pointer group">
+                    <div class="flex-1 flex items-center">
+                        <div class="bg-black h-8 w-8 rounded-full text-white uppercase flex items-center text-center justify-center p-2">
+                            {{group.name | getInitials }}
+                        </div>
+                        <span class="font-semibold text-base ml-5">{{group.name}}</span>
+                    </div>
+                    <span class="w-32">{{group.ownerId == currentUser ? 'Owner' : 'Member'}}</span>
+                    <span class="w-32">{{group.size}}</span>
+                    <span class="w-32">{{group.createdAt}}</span>
+                    <span class="w-20">
+                        <span class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-bounce"></span>
+                    </span>
+                </div>
+            }
         } @else {
             <div class="text-center py-5 border-b border-[#CBCBCB] text-sm italic font-light">
                 No data available in this table

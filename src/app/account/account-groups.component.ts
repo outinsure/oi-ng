@@ -1,59 +1,73 @@
 import { Component } from "@angular/core";
+import { GetInitialsPipe } from "../get-initials.pipe";
 
 @Component({
     selector: 'account-groups',
     templateUrl: './account-groups.component.html',
+    standalone: true,
+    imports: [GetInitialsPipe]
 })
 export class AccountGroupsComponent {
-    groups = [
+    currentUser = 2;
+    apiResponse = [
         {
             name: 'I and Spouse',
-            ownerName: '',
-            ownerId: '1',
+            groupId: 1,
+            ownerId: 1,
             size: 10,
             createdAt: 'August 22'
         },
         {
             name: 'Church Choir',
-            ownerName: '',
-            ownerId: '1',
+            groupId: 2,
+            ownerId: 1,
             size: 5,
             createdAt: 'May 31'
         },
         {
             name: 'School hommies',
-            ownerName: '',
-            ownerId: '2',
+            groupId: 3,
+            ownerId: 2,
             size: 9,
             createdAt: 'June 19'
         },
         {
             name: 'Boys Night Out',
-            ownerName: '',
-            ownerId: '2',
+            groupId: 4,
+            ownerId: 2,
             size: 5,
             createdAt: 'November 04'
         },
         {
             name: 'Tech group',
-            ownerName: '',
-            ownerId: '3',
+            groupId: 5,
+            ownerId: 3,
             size: 3,
             createdAt: 'December 19'
         },
         {
             name: 'Work colleagues',
-            ownerName: '',
-            ownerId: '3',
+            groupId: 6,
+            ownerId: 3,
             size: 2,
             createdAt: 'July 01'
         },
         {
             name: 'Soccer team',
-            ownerName: '',
-            ownerId: '4',
+            groupId: 7,
+            ownerId: 4,
             size: 5,
             createdAt: 'September 15'
         },
-    ]
+    ];
+    showOwnerList = (event: Event) => {
+        const toggle = event.target as HTMLInputElement;
+        const showOwnerList = toggle.checked;
+        if (showOwnerList) {
+            this.groups = this.groups.filter((group) => group.ownerId == this.currentUser);
+        } else {
+            this.groups = this.apiResponse;
+        }
+    }
+    groups = this.apiResponse
 }
