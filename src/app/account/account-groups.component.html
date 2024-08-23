@@ -3,7 +3,8 @@
     <input 
         placeholder="Search for a group by name or members"
         type="text"
-        class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light" 
+        class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light"
+        (input)="searchGroups($event)"
     />
 </div>
 <div class="py-8 px-8 shadow-lg bg-white border border-[#CBCBCB] my-16">
