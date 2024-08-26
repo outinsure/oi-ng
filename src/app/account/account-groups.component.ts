@@ -1,11 +1,12 @@
 import { Component } from "@angular/core";
 import { GetInitialsPipe } from "../get-initials.pipe";
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 
 @Component({
     selector: 'account-groups',
     templateUrl: './account-groups.component.html',
     standalone: true,
-    imports: [GetInitialsPipe]
+    imports: [GetInitialsPipe, RouterLink, RouterLinkActive, RouterOutlet]
 })
 export class AccountGroupsComponent {
     currentUser = 2;

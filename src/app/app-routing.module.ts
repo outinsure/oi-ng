@@ -9,6 +9,7 @@ import { UpdateNumberComponent } from './update-form/update-number.component';
 import { UpdateEmailComponent } from './update-form/update-email.component';
 import { UpdatePasswordComponent } from './update-form/update-password.component';
 import { AccountGroupsComponent } from './account/account-groups.component';
+import { GroupNewComponent } from './groups/group-new.component';
 
 export const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -44,8 +45,18 @@ export const routes: Routes = [
       },
       {
         path: 'groups',
-        title: 'Manage Groups',
-        component: AccountGroupsComponent,
+        children: [
+          {
+            path: '',
+            title: 'Manage Groups',
+            component: AccountGroupsComponent
+          },
+          {
+            path: 'new',
+            title: 'Create group',
+            component: GroupNewComponent
+          }
+        ]
       }
     ]
   },

@@ -19,9 +19,9 @@
                 Owner role
             </label>
         </div>
-        <button class="bg-black text-white text-md font-semibold uppercase py-4 px-6 rounded-full">
+        <a routerLink="/account/groups/new" routerLinkActive="active" class="bg-black text-white text-md font-semibold uppercase py-4 px-6 rounded-full">
             Create group
-        </button>
+        </a>
     </div>
     <div class="mt-12">
         <div class="flex text-sm border-b border-[#CBCBCB] uppercase pb-5 items-center">
@@ -55,3 +55,4 @@
         }
     </div>
 </div>
+<router-outlet></router-outlet>
