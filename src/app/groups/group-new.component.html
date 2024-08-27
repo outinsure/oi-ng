@@ -21,3 +21,27 @@
         Review
     </button>
 </div>
+@if (tabIndex == 0) {
+    <div class="mt-6">
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Group name" 
+        />
+        <textarea class="bg-[#F3F3F3] 
+        text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+        py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+        placeholder:text-base" placeholder="Group description (Optional)" rows="5"></textarea>
+        <div class="flex items-center justify-around">
+            <button type="button" class="w-2/5 bg-transparent text-black border border-black font-semibold h-12 rounded-xl mt-4">Cancel</button>
+            <button
+                type="button"
+                class="w-2/5 bg-black text-white font-semibold h-12 rounded-xl mt-4"
+            >
+                Continue
+            </button>
+        </div>
+    </div>
+}
