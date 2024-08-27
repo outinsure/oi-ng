@@ -4,4 +4,6 @@ import { Component } from "@angular/core";
     selector: 'group-new',
     templateUrl: './group-new.component.html'
 })
-export class GroupNewComponent {}
+export class GroupNewComponent {
+    tabIndex = 0
+}

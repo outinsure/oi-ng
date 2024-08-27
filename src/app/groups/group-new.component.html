@@ -1,0 +1,23 @@
+<h2 class="text-3xl text-center pb-4 border-b border-[#CBCBCB]">Create Group</h2>
+<div class="flex mt-6 items-center justify-between w-4/5 mx-auto">
+    <button 
+        class="text-lg rounded-md py-2 px-4" 
+        [class]="tabIndex == 0 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+    >
+        Name Group
+    </button>
+    <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
+    <button 
+        class="text-lg rounded-md py-2 px-4" 
+        [class]="tabIndex == 1 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+    >
+        Invite Members
+    </button>
+    <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
+    <button 
+        class="text-lg rounded-md py-2 px-4" 
+        [class]="tabIndex == 2 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+    >
+        Review
+    </button>
+</div>
