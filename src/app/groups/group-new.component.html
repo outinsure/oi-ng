@@ -35,13 +35,76 @@
         py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
         placeholder:text-base" placeholder="Group description (Optional)" rows="5"></textarea>
         <div class="flex items-center justify-around">
-            <button type="button" class="w-2/5 bg-transparent text-black border border-black font-semibold h-12 rounded-xl mt-4">Cancel</button>
+            <a 
+                routerLink="/account/groups" 
+                class="w-2/5 bg-transparent text-black border border-black font-semibold h-12 rounded-xl mt-4 flex items-center justify-center"
+            >
+                Cancel
+            </a>
             <button
+                (click)="postGroupName()"
                 type="button"
                 class="w-2/5 bg-black text-white font-semibold h-12 rounded-xl mt-4"
             >
                 Continue
             </button>
         </div>
+    </div>
+} @else if (tabIndex == 1) {
+    <div class="mt-6">
+        <p class="w-4/5 text-center text-[#1B1B1B] font-light">In this overview, you can invite first five group members and copy invite link to share</p>
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Enter e-mail address" 
+        />
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Enter e-mail address" 
+        />
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Enter e-mail address" 
+        />
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Enter e-mail address" 
+        />
+        <input type="text" 
+            class="bg-[#F3F3F3] 
+            text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+            py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+            placeholder:text-base" 
+            placeholder="Enter e-mail address" 
+        />
+        <p class="mt-6 py-6 border-t border-[#CBCBCB] text-lg text-[#6B6B6B]">Copy Link</p>
+        <div class="flex items-center justify-between">
+            <input disabled type="text"
+                class="bg-[#F3F3F3] 
+                text-xl placeholder:text-[#757575] w-full placeholder:font-light 
+                py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 
+                placeholder:text-base" 
+                value="outinsure.com/invite-group-09123843bfnb3n3bjb3k3" 
+            />
+            <button class="bg-[#F3F3F3] text-black font-semibold rounded-xl p-3 ml-4">Copy</button>
+        </div>
+        <button
+            (click)="sendMembersInvite()"
+            type="button"
+            class="w-full bg-black text-white font-semibold h-12 rounded-xl mt-4"
+        >
+            Continue
+        </button>
     </div>
 }
