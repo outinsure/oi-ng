@@ -3,6 +3,9 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+variables:
+- group: OIVariable
+
 trigger:
 - main
 
@@ -30,9 +33,9 @@ steps:
   
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: '<Your Azure Subscription>'
+    azureSubscription: '$(AZURE_SUBSCRIPTION)'
     appType: 'webApp'
-    appName: '<Your Web App Name>'
+    appName: '$(APP_NAME)'
     package: '$(Build.ArtifactStagingDirectory)/browser'
     runtimeStack: 'NODE|18-lts'
   displayName: 'Deploy to Azure Web App'
