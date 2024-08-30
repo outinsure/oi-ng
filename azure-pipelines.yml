@@ -27,9 +27,9 @@ jobs:
 
     - task: AzureWebApp@1
       inputs:
-        azureSubscription: '$(AZURE_SUBSCRIPTION)'
+        azureSubscription: 'OutinsureService'
         appType: 'webApp'
-        appName: '$(APP_NAME)'
+        appName: 'oi-ng'
         package: '$(Build.ArtifactStagingDirectory)/browser'
         runtimeStack: 'NODE|18-lts'
       displayName: 'Deploy to Azure Web App'
