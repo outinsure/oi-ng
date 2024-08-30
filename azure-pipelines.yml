@@ -1,41 +1,35 @@
-# Node.js with Angular
-# Build a Node.js project that uses Angular.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-variables:
-- group: OIVariable
-
 trigger:
 - main
 
 pool:
-  name: Default
+  vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '18.19'
-  displayName: 'Install Node.js'
+jobs:
+- job: BuildAndDeploy
+  steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.19'
+      displayName: 'Install Node.js'
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-  
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist/oi-ng/browser'
-    ArtifactName: 'browser'
-    publishLocation: 'Container'
-  displayName: 'Publish Artifact: browser'
-  
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: '$(AZURE_SUBSCRIPTION)'
-    appType: 'webApp'
-    appName: '$(APP_NAME)'
-    package: '$(Build.ArtifactStagingDirectory)/browser'
-    runtimeStack: 'NODE|18-lts'
-  displayName: 'Deploy to Azure Web App'
+    - script: |
+        npm install -g @angular/cli
+        npm install
+        npm run build
+      displayName: 'npm install and build'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'dist/oi-ng/browser'
+        ArtifactName: 'browser'
+        publishLocation: 'Container'
+      displayName: 'Publish Artifact: browser'
+
+    - task: AzureWebApp@1
+      inputs:
+        azureSubscription: '$(AZURE_SUBSCRIPTION)'
+        appType: 'webApp'
+        appName: '$(APP_NAME)'
+        package: '$(Build.ArtifactStagingDirectory)/browser'
+        runtimeStack: 'NODE|18-lts'
+      displayName: 'Deploy to Azure Web App'
