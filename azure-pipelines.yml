@@ -10,7 +10,9 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: Azure Pipelines
+  demands:
+  - agent.name -equals Hosted Agent
 
 steps:
 - task: NodeTool@0
