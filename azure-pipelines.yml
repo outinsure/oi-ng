@@ -6,6 +6,8 @@ pool:
 
 jobs:
 - job: BuildAndDeploy
+  strategy:
+      maxParallel: 1
   steps:
     - task: NodeTool@0
       inputs:
