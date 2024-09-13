@@ -8,11 +8,14 @@ import { RouterLink } from "@angular/router";
     imports: [RouterLink]
 })
 export class GroupNewComponent {
-    tabIndex = 1
+    tabIndex = 2
     postGroupName = () => {
         this.tabIndex = 1;
     }
     sendMembersInvite = () => {
         this.tabIndex = 2;
+    }
+    goToStep(number: number) {
+        this.tabIndex = number;
     }
 }

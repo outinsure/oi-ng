@@ -2,21 +2,24 @@
 <div class="flex mt-6 items-center justify-between w-4/5 mx-auto">
     <button 
         class="text-lg rounded-md py-2 px-4" 
-        [class]="tabIndex == 0 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+        [class]="tabIndex == 0 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
+        (click)="goToStep(0)"
     >
         Name Group
     </button>
     <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
     <button 
         class="text-lg rounded-md py-2 px-4" 
-        [class]="tabIndex == 1 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+        [class]="tabIndex == 1 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
+        (click)="goToStep(1)"
     >
         Invite Members
     </button>
     <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
     <button 
         class="text-lg rounded-md py-2 px-4" 
-        [class]="tabIndex == 2 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B] pointer-events-none'"
+        [class]="tabIndex == 2 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
+        (click)="goToStep(2)"
     >
         Review
     </button>
