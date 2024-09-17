@@ -110,4 +110,23 @@
             Continue
         </button>
     </div>
+} @else if (tabIndex == 2) {
+    <div class="mt-6">
+        <p class="w-4/5 mx-auto text-xl text-[#1B1B1B] font-light">
+            Almost Done! Confirm group details and select an insurance package!!
+        </p>
+        <div class="w-4/5 mx-auto mt-12">
+            <h3 class="uppercase text-md mb-3 font-semibold">Group details</h3>
+            <div class="bg-slate-100 rounded p-4">
+                <div class="flex items-center justify-between">
+                    <p class="text-lg font-semibold">Group name</p>
+                    <span class="icon-[ic--baseline-edit] h-8 w-8 bg-black cursor-pointer" (click)="goToStep(0)"></span>
+                </div>
+                <p class="mt-1">Weekend & beach</p>
+                <p class="text-lg font-semibold mt-6">Group members</p>
+                <p>ashikodiemeka&#64;gmail.com (You)</p>
+                <p class="underline text-sm mt-2 cursor-pointer" (click)="goToStep(1)">send group invite</p>
+            </div>
+        </div>
+    </div>
 }
