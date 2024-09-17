@@ -16,6 +16,7 @@ export class AccountGroupsComponent {
             groupId: 1,
             ownerId: 1,
             size: 10,
+            active: false,
             createdAt: 'August 22'
         },
         {
@@ -23,6 +24,7 @@ export class AccountGroupsComponent {
             groupId: 2,
             ownerId: 1,
             size: 5,
+            active: true,
             createdAt: 'May 31'
         },
         {
@@ -30,6 +32,7 @@ export class AccountGroupsComponent {
             groupId: 3,
             ownerId: 2,
             size: 9,
+            active: true,
             createdAt: 'June 19'
         },
         {
@@ -37,6 +40,7 @@ export class AccountGroupsComponent {
             groupId: 4,
             ownerId: 2,
             size: 5,
+            active: true,
             createdAt: 'November 04'
         },
         {
@@ -44,6 +48,7 @@ export class AccountGroupsComponent {
             groupId: 5,
             ownerId: 3,
             size: 3,
+            active: true,
             createdAt: 'December 19'
         },
         {
@@ -51,6 +56,7 @@ export class AccountGroupsComponent {
             groupId: 6,
             ownerId: 3,
             size: 2,
+            active: false,
             createdAt: 'July 01'
         },
         {
@@ -58,6 +64,7 @@ export class AccountGroupsComponent {
             groupId: 7,
             ownerId: 4,
             size: 5,
+            active: true,
             createdAt: 'September 15'
         },
     ];
