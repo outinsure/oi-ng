@@ -128,6 +128,70 @@
                 <p>ashikodiemeka&#64;gmail.com (You)</p>
                 <p class="underline text-sm mt-2 cursor-pointer" (click)="goToStep(1)">send group invite</p>
             </div>
+            <h3 class="uppercase text-lg mt-12 mb-0 font-semibold">Pricing</h3>
+            <h5 class="mb-3 font-light text-sm">Minimum of 5 members for all plans.</h5>
+            <div class="flex items-center justify-between">
+                <label
+                  (click)="selectPlan('squad_lite')"
+                  [class.border-black]="selectedPlan === 'squad_lite'"
+                  [class.bg-[#EBEBEB]]="selectedPlan === 'squad_lite'"
+                  class="block bg-slate-100 w-[30%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                >
+                  <input
+                    type="radio"
+                    name="plan"
+                    [value]="'squad_lite'"
+                    class="hidden"
+                  />
+                <h3 class="text-md font-normal mb-5">Squad Lite</h3>
+                <p class="text-gray-600"><span class="text-4xl font-bold">$11</span><span>/month</span></p>
+                <p class="text-sm mt-5"><b>$100</b> payout per month</p>
+                <p class="text-sm mt-5 flex items-center">
+                    <span class="icon-[ant-design--check-circle-filled] h-4 w-4 bg-black"></span>
+                    <span class="ml-2">Extra $20 on extra member</span>
+                </p>
+                </label>
+                <label
+                  (click)="selectPlan('crew_vibes')"
+                  [class.border-black]="selectedPlan === 'crew_vibes'"
+                  [class.bg-[#EBEBEB]]="selectedPlan === 'crew_vibes'"
+                  class="block bg-slate-100 w-[30%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                >
+                  <input
+                    type="radio"
+                    name="plan"
+                    [value]="'crew_vibes'"
+                    class="hidden"
+                  />
+                <h3 class="text-md font-normal mb-5">Crew Vibes</h3>
+                <p class="text-gray-600"><span class="text-4xl font-bold">$25</span><span>/month</span></p>
+                <p class="text-sm mt-5"><b>$250</b> payout per month</p>
+                <p class="text-sm mt-5 flex items-center">
+                    <span class="icon-[ant-design--check-circle-filled] h-4 w-4 bg-black"></span>
+                    <span class="ml-2">Extra $40 on extra member</span>
+                </p>
+                </label>
+                <label
+                  (click)="selectPlan('party_mode')"
+                  [class.border-black]="selectedPlan === 'party_mode'"
+                  [class.bg-[#EBEBEB]]="selectedPlan === 'party_mode'"
+                  class="block bg-slate-100 w-[30%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                >
+                  <input
+                    type="radio"
+                    name="plan"
+                    [value]="'party_mode'"
+                    class="hidden"
+                  />
+                <h3 class="text-md font-normal mb-5">Party Mode</h3>
+                <p class="text-gray-600"><span class="text-4xl font-bold">$50</span><span>/month</span></p>
+                <p class="text-sm mt-5"><b>$550</b> payout per month</p>
+                <p class="text-sm mt-5 flex items-center">
+                    <span class="icon-[ant-design--check-circle-filled] h-4 w-4 bg-black"></span>
+                    <span class="ml-2">Extra $100 on extra member</span>
+                </p>
+                </label>
+              </div>
         </div>
     </div>
 }
