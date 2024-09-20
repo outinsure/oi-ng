@@ -9,7 +9,7 @@ import { RouterLink } from "@angular/router";
 })
 export class GroupNewComponent {
     selectedPlan: string = 'squad_lite'
-    tabIndex = 2
+    tabIndex = 0
     postGroupName = () => {
         this.tabIndex = 1;
     }
