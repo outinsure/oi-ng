@@ -80,7 +80,6 @@ export class AccountGroupsComponent {
     searchGroups = (event: Event) => {
         const input = event.target as HTMLInputElement;
         const searchValue = input.value;
-        console.log(searchValue)
         if (searchValue) {
             this.groups = this.apiResponse.filter((group) => group.name.toLowerCase().includes(searchValue.toLowerCase()))
         } else {

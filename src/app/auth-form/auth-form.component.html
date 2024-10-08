@@ -1,144 +1,172 @@
 <div class="flex flex-col min-h-dvh">
-  <div class="bg-black">
+  <div class="bg-black px-4">
     <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
       <a href="/"><img class="w-12 h-12" src="/assets/oi-512.png" /></a>
     </div>
   </div>
-  <div class="w-80 mx-auto flex-1 flex items-center">
+  <div class="max-w-7xl p-10 mx-auto flex-1 flex items-center">
     @if (authStep == 1) {
-        <div class="w-full">
-          <form [formGroup]="authForm" (ngSubmit)="nextAuthStep()">
-            <label for="email" class="text-3xl font-light mb-3">What's your email?</label>
-            <input
-              class="bg-[#EEEEEE] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2"
-              placeholder="Enter your email address"
-              id="email"
-              type="text"
-              formControlName="email"
-            />
-            <button
-              type="submit"
-              class="w-full bg-black text-white font-semibold h-12 rounded-xl mt-4"
-            >
-              Continue with Email
-            </button>
-          </form>
-          <div class="flex items-center w-full my-4">
-            <div class="border border-gray-500 flex-1"></div>
-            <span class="mx-2 text-gray-500">or</span>
-            <div class="border border-gray-500 flex-1"></div>
-          </div>
-          <button
-            class="flex items-center justify-center w-full bg-[#EEEEEE] hover:bg-[#DDDDDD] h-12 rounded-xl"
-          >
-            <span class="icon-[devicon--google] h-6 w-6"></span>
-            <span class="font-semibold text-black ml-2">Continue with Google</span>
-          </button>
-          <button
-            class="flex items-center justify-center w-full bg-[#EEEEEE] hover:bg-[#DDDDDD] h-12 rounded-xl mt-4"
-          >
-            <span class="icon-[logos--microsoft-icon] h-6 w-6"></span>
-            <span class="font-semibold text-black ml-2"
-              >Continue with Microsoft</span
-            >
-          </button>
-        </div>
+    <div class="w-full">
+      <form [formGroup]="authForm" (ngSubmit)="nextAuthStep()">
+        <label for="email" class="block text-3xl font-light mb-2"
+          >What's your email?</label
+        >
+        <input
+          class="bg-[#EEEEEE] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2"
+          placeholder="Enter your email address"
+          id="email"
+          type="text"
+          formControlName="email"
+          (input)="updateInput()"
+        />
+        @if (authForm.dirty && !authForm.valid && !isTyping) {
+        <p class="text-xs text-red-400 mt-2">Enter valid email</p>
+        }
+        <button
+          [disabled]="authForm.invalid"
+          type="submit"
+          class="w-full bg-black disabled:bg-opacity-50 text-white font-semibold h-12 rounded-xl mt-4"
+        >
+          Continue with Email
+        </button>
+      </form>
+      <div class="flex items-center w-full my-4">
+        <div class="border border-gray-500 flex-1"></div>
+        <span class="mx-2 text-gray-500">or</span>
+        <div class="border border-gray-500 flex-1"></div>
+      </div>
+      <button
+        class="flex items-center justify-center w-full bg-[#EEEEEE] hover:bg-[#DDDDDD] h-12 rounded-xl"
+      >
+        <span class="icon-[devicon--google] h-6 w-6"></span>
+        <span class="font-semibold text-black ml-2">Continue with Google</span>
+      </button>
+      <button
+        class="flex items-center justify-center w-full bg-[#EEEEEE] hover:bg-[#DDDDDD] h-12 rounded-xl mt-4"
+      >
+        <span class="icon-[logos--microsoft-icon] h-6 w-6"></span>
+        <span class="font-semibold text-black ml-2"
+          >Continue with Microsoft</span
+        >
+      </button>
+    </div>
     } @else if (authStep == 2) {
-        <div class="full">
-            <p class="text-3xl font-light mb-6">Enter the 4-digit code sent to you at: {{ authForm.value.email }}</p>
-            <div class="flex">
-                <input 
-                    inputmode="numeric"
-                    pattern="[0-9]"
-                    type="text"
-                    [maxLength]="1"
-                    autocomplete="one-time-code" 
-                    class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4" 
-                />
-                <input 
-                    inputmode="numeric"
-                    pattern="[0-9]"
-                    type="text"
-                    [maxLength]="1"
-                    autocomplete="one-time-code" 
-                    class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4" 
-                />
-                <input 
-                    inputmode="numeric"
-                    pattern="[0-9]"
-                    type="text"
-                    [maxLength]="1"
-                    autocomplete="one-time-code" 
-                    class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4" 
-                />
-                <input 
-                    inputmode="numeric"
-                    pattern="[0-9]"
-                    type="text"
-                    [maxLength]="1"
-                    autocomplete="one-time-code" 
-                    class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4" 
-                />
-            </div>
-            <p class="mt-4 text-sm text-[#999999] font-light italic">Check your inbox and spam folders</p>
-            <div class="flex mt-12 mb-12">
-                <button class="text-black bg-[#F3F3F3] py-4 px-4 rounded-3xl hover:bg-[#DDDDDD]">Resend</button>
-            </div>
-            <div class="flex w-full justify-between">
-                <button
-                    (click)="restartAuth()" 
-                    class="text-black bg-[#F3F3F3] p-4 text-center 
-                        rounded-full hover:bg-[#DDDDDD] flex items-center justify-center"
-                >
-                    <span class="icon-[ant-design--arrow-left-outlined] h-8 w-8"></span>
-                </button>
-                <button
-                    (click)="nextAuthStep()"
-                    class="group text-white bg-black px-4 text-center 
-                        rounded-full flex items-center justify-center"    
-                >
-                    Next
-                    <span class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-pulse"></span>
-                </button>
-            </div>
-        </div>
+    <form [formGroup]="otpForm" (ngSubmit)="submitOTP()">
+      <p class="text-3xl font-light mb-6">
+        Enter the 4-digit code sent to you at: {{ authForm.value.email }}
+      </p>
+      <div class="flex">
+        <input
+          #otp1
+          formControlName="otp1"
+          inputmode="numeric"
+          pattern="[0-9]"
+          type="text"
+          [maxLength]="1"
+          (input)="moveFocus(otp1, otp2)"
+          (keydown.backspace)="moveBack(otp1, otp2)"
+          autocomplete="one-time-code"
+          class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4"
+        />
+        <input
+          #otp2
+          formControlName="otp2"
+          inputmode="numeric"
+          pattern="[0-9]"
+          type="text"
+          [maxLength]="1"
+          (input)="moveFocus(otp2, otp3)"
+          (keydown.backspace)="moveBack(otp2, otp1)"
+          autocomplete="one-time-code"
+          class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4"
+        />
+        <input
+          #otp3
+          formControlName="otp3"
+          inputmode="numeric"
+          pattern="[0-9]"
+          type="text"
+          [maxLength]="1"
+          (input)="moveFocus(otp3, otp4)"
+          (keydown.backspace)="moveBack(otp3, otp2)"
+          autocomplete="one-time-code"
+          class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4"
+        />
+        <input
+          #otp4
+          formControlName="otp4"
+          inputmode="numeric"
+          pattern="[0-9]"
+          type="text"
+          [maxLength]="1"
+          (input)="moveFocus(otp4, null)"
+          (keydown.backspace)="moveBack(otp4, otp3)"
+          autocomplete="one-time-code"
+          class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4"
+        />
+      </div>
+      <p class="mt-4 text-sm text-[#999999] font-light italic">
+        Check your inbox and spam folders
+      </p>
+      <div class="flex mt-12 mb-12">
+        <button
+          class="text-black bg-[#F3F3F3] py-4 px-4 rounded-3xl hover:bg-[#DDDDDD]"
+        >
+          Resend
+        </button>
+      </div>
+      <div class="flex w-full justify-between">
+        <button
+          (click)="restartAuth()"
+          class="text-black bg-[#F3F3F3] p-4 text-center rounded-full hover:bg-[#DDDDDD] flex items-center justify-center"
+        >
+          <span class="icon-[ant-design--arrow-left-outlined] h-8 w-8"></span>
+        </button>
+        <button
+          [disabled]="otpForm.invalid"
+          type="submit"
+          class="group text-white bg-black disabled:bg-gray-400 px-4 text-center rounded-full flex items-center justify-center"
+        >
+          Next
+          <span
+            class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-pulse"
+          ></span>
+        </button>
+      </div>
+    </form>
     } @else if (authStep == 3) {
-        <div class="full">
-            <p class="text-[28px] font-light mb-4">Complete sign up below</p>
-            <div class="w-full">
-                <input type="password" 
-                    class="bg-[#F3F3F3] 
-                    text-xl placeholder:text-[#757575] w-full placeholder:font-light 
-                    py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 
-                    placeholder:text-base" 
-                    placeholder="Password" 
-                />
-                <input type="password" 
-                    class="bg-[#F3F3F3] 
-                    text-xl placeholder:text-[#757575] w-full placeholder:font-light 
-                    py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 
-                    placeholder:text-base" 
-                    placeholder="Confirm Password" 
-                />
-            </div>
-            <div class="flex w-full justify-between mt-12">
-                <button
-                    (click)="restartAuth()" 
-                    class="text-black bg-[#F3F3F3] p-4 text-center 
-                        rounded-full hover:bg-[#DDDDDD] flex items-center justify-center"
-                >
-                    <span class="icon-[ant-design--arrow-left-outlined] h-8 w-8"></span>
-                </button>
-                <button
-                    (click)="completeAuth()"
-                    class="group text-white bg-black px-4 text-center 
-                        rounded-full flex items-center justify-center"    
-                >
-                    Done
-                    <span class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-pulse"></span>
-                </button>
-            </div>
-        </div>
+    <div class="full">
+      <p class="text-[28px] font-light mb-4">Complete sign up below</p>
+      <div class="w-full">
+        <input
+          type="password"
+          class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
+          placeholder="Password"
+        />
+        <input
+          type="password"
+          class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
+          placeholder="Confirm Password"
+        />
+      </div>
+      <div class="flex w-full justify-between mt-12">
+        <button
+          (click)="restartAuth()"
+          class="text-black bg-[#F3F3F3] p-4 text-center rounded-full hover:bg-[#DDDDDD] flex items-center justify-center"
+        >
+          <span class="icon-[ant-design--arrow-left-outlined] h-8 w-8"></span>
+        </button>
+        <button
+          (click)="completeAuth()"
+          class="group text-white bg-black px-4 text-center rounded-full flex items-center justify-center"
+        >
+          Done
+          <span
+            class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-pulse"
+          ></span>
+        </button>
+      </div>
+    </div>
     }
   </div>
 </div>
