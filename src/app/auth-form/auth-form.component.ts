@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AuthFormComponent {
   constructor(private router: Router) {}
   isTyping = false;
-  authStep = 3;
+  authStep = 1;
   authForm = new FormGroup({
     email: new FormControl('', { validators: [Validators.required, Validators.email]}),
   });
@@ -19,6 +19,29 @@ export class AuthFormComponent {
     otp3: new FormControl('', [Validators.required, Validators.pattern('[0-9]')]),
     otp4: new FormControl('', [Validators.required, Validators.pattern('[0-9]')])
   });
+  passwordForm = new FormGroup({
+    password: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')
+      ],
+    }),
+    confirmPassword: new FormControl('', [Validators.required, this.passwordMatchValidator()])
+  }, { validators: this.recheckPasswordMatch() });
+  passwordMatchValidator() {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const confirmPassword = control.value;
+      const initialPassword = control.parent?.value.password;
+      return initialPassword !== confirmPassword ? { passwordMismatch: true } : null;
+    };
+  }
+  recheckPasswordMatch() {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const initialPassword = control.value.password;
+      const confirmPassword = control.value.confirmPassword;
+      return initialPassword !== confirmPassword ? { passwordMismatch: true } : null;
+    };
+  }
   submitOTP() {
     if (this.otpForm.valid) {
       this.authStep++;
@@ -36,7 +59,7 @@ export class AuthFormComponent {
   restartAuth() {
     this.authStep = 1;
   };
-  completeAuth() {
+  completeSignup() {
     this.router.navigate(['account']);
   }
   updateInput () {

@@ -4,7 +4,7 @@
       <a href="/"><img class="w-12 h-12" src="/assets/oi-512.png" /></a>
     </div>
   </div>
-  <div class="max-w-7xl p-10 mx-auto flex-1 flex items-center">
+  <div class="w-full sm:max-w-xl p-10 mx-auto flex-1 flex items-center">
     @if (authStep == 1) {
     <div class="w-full">
       <form [formGroup]="authForm" (ngSubmit)="nextAuthStep()">
@@ -52,8 +52,8 @@
     </div>
     } @else if (authStep == 2) {
     <form [formGroup]="otpForm" (ngSubmit)="submitOTP()">
-      <p class="text-3xl font-light mb-6">
-        Enter the 4-digit code sent to you at: {{ authForm.value.email }}
+      <p class="text-3xl font-light mb-6 break-all">
+        Enter the 4-digit code sent to you at: <br/> {{ authForm.value.email }}
       </p>
       <div class="flex">
         <input
@@ -135,19 +135,35 @@
       </div>
     </form>
     } @else if (authStep == 3) {
-    <div class="full">
+    <form class="w-full" [formGroup]="passwordForm" (ngSubmit)="completeSignup()">
       <p class="text-[28px] font-light mb-4">Complete sign up below</p>
-      <div class="w-full">
-        <input
-          type="password"
-          class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
-          placeholder="Password"
-        />
-        <input
-          type="password"
-          class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
-          placeholder="Confirm Password"
-        />
+      <input
+        formControlName="password"
+        type="password"
+        class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
+        placeholder="Password"
+        (input)="updateInput()"
+      />
+      <div class="relative">
+        @if (passwordForm.controls.password.dirty && !passwordForm.controls.password.valid && !isTyping) {
+          <p class="text-xs text-red-400 absolute">
+              8+ chars, 1 uppercase, 1 number, 1 special character.
+          </p>
+        }
+      </div>
+      <input
+        formControlName="confirmPassword"
+        type="password"
+        class="bg-[#F3F3F3] text-xl placeholder:text-[#757575] w-full placeholder:font-light py-3 px-4 mt-4 rounded-xl focus:outline-slate-500 focus:outline-2 placeholder:text-base"
+        placeholder="Confirm Password"
+        (input)="updateInput()"
+      />
+      <div class="relative">
+        @if (passwordForm.controls.confirmPassword.dirty && !passwordForm.controls.confirmPassword.valid && !isTyping) {
+          <p class="text-xs text-red-400 absolute">
+            Password mismatch
+          </p>
+        }
       </div>
       <div class="flex w-full justify-between mt-12">
         <button
@@ -157,8 +173,9 @@
           <span class="icon-[ant-design--arrow-left-outlined] h-8 w-8"></span>
         </button>
         <button
-          (click)="completeAuth()"
-          class="group text-white bg-black px-4 text-center rounded-full flex items-center justify-center"
+          [disabled]="passwordForm.invalid"
+          type="submit"
+          class="group text-white bg-black disabled:bg-gray-400 px-4 text-center rounded-full flex items-center justify-center"
         >
           Done
           <span
@@ -166,7 +183,7 @@
           ></span>
         </button>
       </div>
-    </div>
+    </form>
     }
   </div>
 </div>
