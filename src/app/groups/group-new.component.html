@@ -1,7 +1,7 @@
 <h2 class="text-3xl text-center pb-4 border-b border-[#CBCBCB]">Create Group</h2>
-<div class="flex mt-6 items-center justify-between w-4/5 mx-auto">
+<div class="flex mt-6 items-center justify-between md:w-4/5 mx-auto">
     <button 
-        class="text-lg rounded-md py-2 px-4" 
+        class="md:text-lg rounded-md py-1 px-2 md:py-2 md:px-4" 
         [class]="tabIndex == 0 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
         (click)="goToStep(0)"
     >
@@ -9,7 +9,7 @@
     </button>
     <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
     <button 
-        class="text-lg rounded-md py-2 px-4" 
+        class="md:text-lg rounded-md py-1 px-2 md:py-2 md:px-4" 
         [class]="tabIndex == 1 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
         (click)="goToStep(1)"
     >
@@ -17,7 +17,7 @@
     </button>
     <div class="h-[1px] bg-[#9B9B9B] flex-1"></div>
     <button 
-        class="text-lg rounded-md py-2 px-4" 
+        class="md:text-lg rounded-md py-1 px-2 md:py-2 md:px-4" 
         [class]="tabIndex == 2 ? 'text-white bg-black' : 'border border-[#CBCBCB] text-[#9B9B9B]'"
         (click)="goToStep(2)"
     >
@@ -55,7 +55,7 @@
     </div>
 } @else if (tabIndex == 1) {
     <div class="mt-6">
-        <p class="w-4/5 text-center text-[#1B1B1B] font-light">Invite first five group members. If group has less than 5, members can be entered multiple times.</p>
+        <p class="md:w-4/5 text-center text-[#1B1B1B] font-light">Invite first five group members. If group has less than 5, members can be entered multiple times.</p>
         <input disabled type="text" 
             class="bg-[#F3F3F3] 
             text-xl placeholder:text-[#757575] w-full placeholder:font-light 
@@ -113,10 +113,10 @@
     </div>
 } @else if (tabIndex == 2) {
     <div class="mt-6">
-        <p class="w-4/5 mx-auto text-xl text-[#1B1B1B] font-light">
+        <p class="md:w-4/5 mx-auto md:text-xl text-[#1B1B1B] font-light">
             Almost Done! Confirm group details and select an insurance package!!
         </p>
-        <div class="w-4/5 mx-auto mt-12">
+        <div class="md:w-4/5 mx-auto mt-12">
             <h3 class="uppercase text-md mb-3 font-semibold">Group details</h3>
             <div class="bg-slate-100 rounded p-4">
                 <div class="flex items-center justify-between">
@@ -130,13 +130,13 @@
             </div>
             <h3 class="uppercase text-lg mt-12 mb-0 font-semibold">Pricing</h3>
             <h5 class="mb-3 font-light text-sm">Minimum of 5 members for all plans.</h5>
-            <div class="flex items-center justify-between">
+            <div class="md:flex items-center justify-between">
                 <label
                   (click)="selectPlan('squad_lite')"
                   [class.border-black]="selectedPlan === 'squad_lite'"
                   [class.bg-[#EBEBEB]]="selectedPlan === 'squad_lite'"
                   [class.bg-slate-100]="selectedPlan !== 'squad_lite'"
-                  class="block w-[31%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                  class="block md:w-[31%] mb-4 md:mb-0 p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
                 >
                   <input
                     type="radio"
@@ -157,7 +157,7 @@
                   [class.border-black]="selectedPlan === 'crew_vibes'"
                   [class.bg-[#EBEBEB]]="selectedPlan === 'crew_vibes'"
                   [class.bg-slate-100]="selectedPlan !== 'crew_vibes'"
-                  class="block w-[31%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                  class="block md:w-[31%] mb-4 md:mb-0 p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
                 >
                   <input
                     type="radio"
@@ -178,7 +178,7 @@
                   [class.border-black]="selectedPlan === 'party_mode'"
                   [class.bg-[#EBEBEB]]="selectedPlan === 'party_mode'"
                   [class.bg-slate-100]="selectedPlan !== 'party_mode'"
-                  class="block w-[31%] p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
+                  class="block md:w-[31%] mb-4 md:mb-0 p-4 border rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition"
                 >
                   <input
                     type="radio"
