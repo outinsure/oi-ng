@@ -1,66 +1,98 @@
 <div class="border border-[#CBCBCB] h-12 flex items-center rounded-md">
-    <span class="icon-[ant-design--search-outlined] h-6 w-6 text-[#CBCBCB] mx-4"></span>
-    <input 
-        placeholder="Search for a group by name or members"
-        type="text"
-        class=" focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light"
-        (input)="searchGroups($event)"
-    />
+  <span
+    class="icon-[ant-design--search-outlined] h-6 w-6 text-[#CBCBCB] mx-4"
+  ></span>
+  <input
+    placeholder="Search for a group by name or members"
+    type="text"
+    class="focus:outline-none bg-transparent placeholder:text-base text-xl flex-1 py-3 font-light"
+    (input)="searchGroups($event)"
+  />
 </div>
 <div class="py-8 px-8 shadow-lg bg-white border border-[#CBCBCB] my-16">
-    <div class="flex items-center justify-between">
-        <div>
-            <span class="text-2xl font-bold text-black">Group</span>
-            <label class="flex items-center mt-2 uppercase text-sm text-black font-normal">
-                <input value="" type="checkbox" class="h-6 w-16 hidden peer" (change)="showOwnerList($event)" />
-                <div class="bg-[#CBCBCB] rounded-lg h-6 w-12 mr-2 p-1 flex peer-checked:justify-end peer-checked:bg-black">
-                    <div class="w-4 h-4 bg-white rounded-sm"></div>
-                </div>
-                Owner role
-            </label>
+  <div class="flex items-center justify-between">
+    <div>
+      <span class="text-2xl font-bold text-black">Group</span>
+      <label
+        class="flex items-center mt-2 uppercase text-sm text-black font-normal"
+      >
+        <input
+          value=""
+          type="checkbox"
+          class="h-6 w-16 hidden peer"
+          (change)="showOwnerList($event)"
+        />
+        <div
+          class="bg-[#CBCBCB] rounded-lg h-6 w-12 mr-2 p-1 flex peer-checked:justify-end peer-checked:bg-black"
+        >
+          <div class="w-4 h-4 bg-white rounded-sm"></div>
         </div>
-        <a routerLink="/account/groups/new" routerLinkActive="active" class="bg-black text-white text-md font-semibold uppercase py-4 px-6 rounded-full">
-            Create group
-        </a>
+        Owner role
+      </label>
     </div>
-    <div class="mt-12">
-        <div class="flex text-sm border-b border-[#CBCBCB] uppercase pb-5 items-center">
-            <span class="flex-1">Name</span>
-            <span class="w-32">Role</span>
-            <span class="w-32">Size</span>
-            <span class="w-32">Active</span>
-            <span class="w-32">Created</span>
-            <span class="w-20"></span>
-        </div>
-        @if (groups.length) {
-            @for(group of groups; track group.groupId) {
-                <div class="flex text-sm border-b border-[#CBCBCB] py-5 items-center cursor-pointer group">
-                    <div class="flex-1 flex items-center">
-                        <div class="bg-black h-8 w-8 rounded-full text-white uppercase flex items-center text-center justify-center p-2">
-                            {{group.name | getInitials }}
-                        </div>
-                        <span class="font-semibold text-base ml-5">{{group.name}}</span>
-                    </div>
-                    <span class="w-32">{{group.ownerId == currentUser ? 'Owner' : 'Member'}}</span>
-                    <span class="w-32">{{group.size}}</span>
-                    <span class="w-32">
-                        @if (group.active) {
-                            <span class="icon-[ant-design--check-circle-filled] h-6 w-6 bg-green-300"></span>
-                        } @else {
-                            <span class="icon-[ant-design--close-circle-filled] h-6 w-6 bg-red-300"></span>
-                        }
-                    </span>
-                    <span class="w-32">{{group.createdAt}}</span>
-                    <span class="w-20">
-                        <span class="icon-[ant-design--arrow-right-outlined] h-6 w-6 ml-2 group-hover:animate-bounce"></span>
-                    </span>
-                </div>
-            }
-        } @else {
-            <div class="text-center py-5 border-b border-[#CBCBCB] text-sm italic font-light">
-                No data available in this table
-            </div>
-        }
+    <a
+      routerLink="/account/groups/new"
+      routerLinkActive="active"
+      class="bg-black text-white text-md font-semibold uppercase py-4 px-6 rounded-full"
+    >
+      Create group
+    </a>
+  </div>
+</div>
+<div class="mt-12">
+  @if (groups.length) { @for (group of groups; track group.groupId) {
+  <div
+    class="border border-[#CBCBCB] rounded-lg p-5 mb-4 grid grid-cols-1 md:grid-cols-6 gap-6 items-center"
+  >
+    <div class="flex items-center col-span-2">
+      <div
+        class="bg-black h-10 w-10 rounded-full text-white uppercase flex items-center justify-center p-2"
+      >
+        {{ group.name | getInitials }}
+      </div>
+      <div class="ml-4">
+        <h2 class="text-lg font-semibold">{{ group.name }}</h2>
+        <p class="text-sm text-gray-500">
+          {{ group.ownerId == currentUser ? "Owner" : "Member" }}
+        </p>
+      </div>
     </div>
+
+    <div class="">
+      <div class="font-semibold text-gray-700 mr-2">Size</div>
+      <div>{{ group.size }}</div>
+    </div>
+
+    <div class="">
+      <div class="font-semibold text-gray-700 mr-2">Active</div>
+      @if (group.active) {
+      <span
+        class="icon-[ant-design--check-circle-filled] h-6 w-6 text-green-500"
+      ></span>
+      } @else {
+      <span
+        class="icon-[ant-design--close-circle-filled] h-6 w-6 text-red-500"
+      ></span>
+      }
+    </div>
+
+    <div class="">
+      <div class="font-semibold text-gray-700 mr-2">Created</div>
+      <div>{{ group.createdAt }}</div>
+    </div>
+
+    <div class="text-right hidden md:block">
+      <span
+        class="icon-[ant-design--arrow-right-outlined] h-6 w-6 text-gray-400 group-hover:text-gray-600"
+      ></span>
+    </div>
+  </div>
+  } } @else {
+  <div
+    class="text-center py-5 border-b border-[#CBCBCB] text-sm italic font-light"
+  >
+    No data available in this list
+  </div>
+  }
 </div>
 <router-outlet></router-outlet>
