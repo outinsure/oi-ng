@@ -1,39 +1,61 @@
 <div class="flex flex-col min-h-dvh">
-    <div class="bg-black w-100">
-        <div class="max-w-[1280px] mx-auto h-20 flex justify-between items-center">
-            <a href="/"><img class="w-12 h-12" src="/assets/oi-512.png" /></a>
-        </div>
+  <div class="bg-black w-100">
+    <div class="max-w-[1280px] mx-auto h-20 flex justify-between items-center">
+      <a href="/"><img class="w-12 h-12" src="/assets/oi-512.png" /></a>
     </div>
-    <div class="">
-        <div class="flex max-w-[1280px] mx-auto">
-            <div class="w-1/5">
-                <ul>
-                    <li class="bg-black">
-                        <a routerLink="/account" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: !isChildUrl }" class="group">
-                            <div class="py-3 px-4 text-xl bg-white group-[.active]:bg-[#EBEBEB] group-[.active]:ml-1">
-                                Account info
-                            </div>
-                        </a>
-                    </li>
-                    <li class="bg-black">
-                        <a routerLink="/account/groups" routerLinkActive="active" class="group">
-                            <div class="py-3 px-4 text-xl bg-white group-[.active]:bg-[#EBEBEB] group-[.active]:ml-1">
-                                Groups
-                            </div>
-                        </a>
-                    </li>
-                    <li class="bg-black">
-                        <a routerLink="/account/subscription" routerLinkActive="active" class="group">
-                            <div class="py-3 px-4 text-xl bg-white group-[.active]:bg-[#EBEBEB] group-[.active]:ml-1">
-                                Payment
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex-1 py-8 px-6">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
+  </div>
+  <div class="">
+    <div class="md:flex max-w-[1280px] mx-auto">
+      <div class="md:w-1/5">
+        <ul class="flex md:block">
+          <li class="md:bg-black flex-1">
+            <a
+              routerLink="/account"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: !isChildUrl }"
+              class="group"
+            >
+              <div
+                class="py-3 px-4 text-base md:text-xl bg-white md:group-[.active]:bg-[#EBEBEB] md:group-[.active]:ml-1 
+                group-[.active]:border-b-2 group-[.active]:border-b-black md:group-[.active]:border-0"
+              >
+                Account info
+              </div>
+            </a>
+          </li>
+          <li class="md:bg-black flex-1">
+            <a
+              routerLink="/account/groups"
+              routerLinkActive="active"
+              class="group"
+            >
+              <div
+                class="py-3 px-4 text-base md:text-xl bg-white md:group-[.active]:bg-[#EBEBEB] md:group-[.active]:ml-1 
+                group-[.active]:border-b-2 group-[.active]:border-b-black md:group-[.active]:border-0"
+              >
+                Groups
+              </div>
+            </a>
+          </li>
+          <li class="md:bg-black flex-1">
+            <a
+              routerLink="/account/subscription"
+              routerLinkActive="active"
+              class="group"
+            >
+              <div
+                class="py-3 px-4 text-base md:text-xl bg-white md:group-[.active]:bg-[#EBEBEB] md:group-[.active]:ml-1 
+                group-[.active]:border-b-2 group-[.active]:border-b-black md:group-[.active]:border-0"
+              >
+                Payment
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="flex-1 py-8 px-6">
+        <router-outlet></router-outlet>
+      </div>
     </div>
+  </div>
 </div>
