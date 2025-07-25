@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { AuthFormComponent } from './auth-form/auth-form.component';
 import { LandingComponent } from './landing/landing.component';
+import { DiscountComponent } from './discount/discount.component';
 import { AccountComponent } from './account/account.component';
 import { AccountInfoComponent } from './account/account-info.component';
 import { UpdateNameComponent } from './update-form/update-name.component';
@@ -12,7 +13,8 @@ import { AccountGroupsComponent } from './account/account-groups.component';
 import { GroupNewComponent } from './groups/group-new.component';
 
 export const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', component: DiscountComponent },
+  { path: 'landing', component: LandingComponent },
   { path: 'oi-auth', component: AuthFormComponent },
   { 
     path: 'account',
