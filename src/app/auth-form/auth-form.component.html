@@ -64,7 +64,7 @@
           type="text"
           [maxLength]="1"
           (input)="moveFocus(otp1, otp2)"
-          (keydown.backspace)="moveBack(otp1, otp2)"
+          (keydown.backspace)="moveBack(otp1, null)"
           autocomplete="one-time-code"
           class="bg-[#F3F3F3] text-xl w-12 py-3 rounded-xl focus:outline-slate-500 focus:outline-2 text-center mr-4"
         />
